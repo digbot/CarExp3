@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 
 function App() {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [age, setAge] = useState('OLD');
   const [size, setSize] = useState('SMALL');
   const [distance, setDistance] = useState('LOW');
@@ -74,7 +74,7 @@ function App() {
             onChange={(e) => setDistance(e.target.value)}
           >
             <option value="LOW">{t('LOW')}</option>
-            <option value="MIDDLE">{t('MIDDLE')}</option>
+            <option value="MIDDLE">{t('MIDDLE2')}</option>
             <option value="LONG">{t('LONG')}</option>
           </select>
         </div>
