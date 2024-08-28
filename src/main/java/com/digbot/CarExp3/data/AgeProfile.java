@@ -11,12 +11,26 @@ public class AgeProfile extends Profile {
             case Age.NEW:
                 this.ensuranceGra = this.ensuranceGra + 500;
                 this.ensuranceKasko = this.ensuranceKasko + 2500;
+                this.repair += 1000;
                 break;
             case Age.FRESH:
                 this.ensuranceKasko += 2000;
                 this.maintenance -= 100;
+                this.repair -= 1000;
                 break;
             default:
+                /*
+                this.ensuranceGra = 300;
+                this.ensuranceKasko = 0;
+                this.vinetka = 87;
+                this.fee = 150;
+                this.maintenance = 290;
+                this.repair = 500;
+                this.fuel = 1700;
+                this.clean = 400;
+                this.accessories = 100;
+                this.others = 0;
+                 */
                 break;
         }
     }
