@@ -33,7 +33,7 @@ public class BasicController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping(value = "/menu", produces = "application/json")
+    @GetMapping(value = "/menu" , produces = "application/json")
     public MenuResponseDTO getMenu() {
         return new MenuResponseDTO();
     }

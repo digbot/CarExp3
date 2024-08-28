@@ -51,9 +51,9 @@ public class Profile implements InterfaceProfile {
         this.maintenance = 290;
         this.repair = 500;
         this.fuel = 1700;
-        this.clean = 120;
+        this.clean = 400;
         this.accessories = 100;
-        this.others = 50;
+        this.others = 0;
     }
 
     @Override

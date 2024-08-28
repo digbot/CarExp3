@@ -4,6 +4,7 @@ import com.digbot.CarExp3.constant.Distance;
 
 public class DistanceProfile extends SizeProfile {
 
+    /* Done */
     public DistanceProfile(String age, String size, String distance) {
         super(age, size, distance);
 
