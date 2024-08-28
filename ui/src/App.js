@@ -10,27 +10,30 @@ function App() {
   const [distance, setDistance] = useState('LOW');
   const [result, setResult] = useState(null);
 
+  const requestCalc =  async () => {
+      const requestData = { age, size, distance };
+      try {
+        const response = await fetch(process.env.REACT_APP_API_ENDPOINT + '/profile', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(requestData),
+        });
+        console.log('requestData', requestData);
+        const data = await response.json();
+        console.log('data', data);
+
+        setResult(data);
+      } catch (error) {
+        console.error('Error:', error);
+        setResult({ error: 'An error occurred while fetching the data.' });
+      }
+  }
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const requestData = { age, size, distance };
-
-    try {
-      const response = await fetch(process.env.REACT_APP_API_ENDPOINT + '/profile', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestData),
-      });
-      console.log('requestData', requestData);
-      const data = await response.json();
-      console.log('data', data);
-
-      setResult(data);
-    } catch (error) {
-      console.error('Error:', error);
-      setResult({ error: 'An error occurred while fetching the data.' });
-    }
+    requestCalc();
   };
 
   return (
@@ -43,7 +46,7 @@ function App() {
             id="age"
             className="block w-full mt-1 p-2 border rounded-md"
             value={age}
-            onChange={(e) => setAge(e.target.value)}
+            onChange={(e) => { setAge(e.target.value); requestCalc(); } }
           >
             <option value="OLD">{t('OLD')}</option>
             <option value="FRESH">{t('FRESH')}</option>
@@ -57,7 +60,7 @@ function App() {
             id="size"
             className="block w-full mt-1 p-2 border rounded-md"
             value={size}
-            onChange={(e) => setSize(e.target.value)}
+            onChange={(e) => { setSize(e.target.value); requestCalc();} }
           >
             <option value="SMALL">{t('SMALL')}</option>
             <option value="MIDDLE">{t('MIDDLE')}</option>
@@ -71,7 +74,7 @@ function App() {
             id="distance"
             className="block w-full mt-1 p-2 border rounded-md"
             value={distance}
-            onChange={(e) => setDistance(e.target.value)}
+            onChange={(e) => { setDistance(e.target.value); requestCalc(); } }
           >
             <option value="LOW">{t('LOW')}</option>
             <option value="MIDDLE">{t('MIDDLE2')}</option>
