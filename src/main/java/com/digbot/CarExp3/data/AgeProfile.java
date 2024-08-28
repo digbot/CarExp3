@@ -15,8 +15,8 @@ public class AgeProfile extends Profile {
                 break;
             case Age.FRESH:
                 this.ensuranceKasko += 2000;
-                this.maintenance -= 100;
-                this.repair -= 1000;
+                this.maintenance -= 290;
+                this.repair -= 500;
                 break;
             default:
                 /*
