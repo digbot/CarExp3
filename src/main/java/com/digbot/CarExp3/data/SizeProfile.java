@@ -35,7 +35,6 @@ public class SizeProfile extends AgeProfile {
                 break;
             case Size.MIDDLE:
                 this.ensuranceGra += 50;
-                this.ensuranceKasko = 2000;
                 this.fee += 150;
                 this.maintenance += 710;
                 this.repair += 200;
