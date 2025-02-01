@@ -1,23 +1,9 @@
 package com.digbot.CarExp3.data;
 
-import com.digbot.CarExp3.constant.Age;
 import com.digbot.CarExp3.constant.Size;
 
 public class SizeProfile extends AgeProfile {
 
-    /*
-        Гражданска отговорност	800 лева
-        Каско	2500 лева
-        Винетка	87 лева
-        Подръжка	290 лева
-        Ремонти	500 лева
-        Данък Мпс	150 лева
-        Гориво	1700 лева*
-        Почистване	120 лева*
-        Аксесоари	100 лева*
-        Други	50 лева*
-
-     */
     public SizeProfile(String age, String size, String distance) {
         super(age, size, distance);
 
@@ -44,18 +30,6 @@ public class SizeProfile extends AgeProfile {
                 this.others += 200;
                 break;
             default:
-                /*
-                this.ensuranceGra = 300;
-                this.ensuranceKasko = 0;
-                this.vinetka = 87;
-                this.fee = 150;
-                this.maintenance = 290;
-                this.repair = 500;
-                this.fuel = 1700;
-                this.clean = 400;
-                this.accessories = 100;
-                this.others = 0;
-                 */
                 break;
         }
     }

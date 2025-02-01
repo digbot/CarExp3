@@ -1,27 +1,12 @@
 package com.digbot.CarExp3.data;
-import java.math.BigDecimal;
 
 /*
-
-Разходи за автомобил:	Пример:	Сметнете вашите разходи:
-Гражданска отговорност	300лв.
-Каско	520лв.
-Данък Мпс	130лв.
-Винетка	97лв.
-Годишно обслужване	290лв.
-Ремонти	500лв.
-Гориво	1561лв.
-Почистване	120лв.
-Аксесоари	100лв.
-Други	0лв.
-Общо за година	3618лв.	0лв.
-Месечен разход
 
 @Entity
  */
 public class Profile implements InterfaceProfile {
-    protected int ensuranceGra;//= new BigDecimal("19.99");
-    protected int ensuranceKasko;// = new BigDecimal("19.99");
+    protected int ensuranceGra;
+    protected int ensuranceKasko;
     protected int vinetka;
     protected int maintenance;
     protected int repair;
@@ -30,6 +15,7 @@ public class Profile implements InterfaceProfile {
     protected int clean;
     protected int accessories;
     protected int others;
+    protected int sum;
 
     protected String size;
     protected String distance;
@@ -54,6 +40,14 @@ public class Profile implements InterfaceProfile {
         this.clean = 400;
         this.accessories = 100;
         this.others = 0;
+    }
+
+    public int getSum() {
+        return sum;
+    }
+
+    public void setSum(int sum) {
+        this.sum = sum;
     }
 
     @Override

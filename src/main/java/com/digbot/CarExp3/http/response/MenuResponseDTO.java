@@ -12,7 +12,6 @@ public class MenuResponseDTO {
     public ArrayList<String> distance = new ArrayList<String>();
 
     public MenuResponseDTO() {
-
         age.add(Age.OLD);
         age.add(Age.FRESH);
         age.add(Age.NEW);
@@ -24,6 +23,5 @@ public class MenuResponseDTO {
         distance.add(Distance.LOW);
         distance.add(Distance.MIDDLE);
         distance.add(Distance.LONG);
-
     }
 }
