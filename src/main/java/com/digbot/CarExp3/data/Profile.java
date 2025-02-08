@@ -1,10 +1,15 @@
 package com.digbot.CarExp3.data;
+import jakarta.persistence.*;
 
-/*
 
 @Entity
- */
+@Table(name = "profile")
 public class Profile implements InterfaceProfile {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     protected int ensuranceGra;
     protected int ensuranceKasko;
     protected int vinetka;
