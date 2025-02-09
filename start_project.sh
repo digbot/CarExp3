@@ -2,15 +2,15 @@
 
 echo "Starting Spring Boot and React..."
 
-# Start Spring Boot backend
+# Start Spring Boot backend in the background and log output to backend.log
 echo "Starting Spring Boot backend..."
 if [[ ! -f "mvnw" ]]; then
     echo "Error: mvnw not found! Make sure you are in the correct directory."
     exit 1
 fi
-gnome-terminal -- bash -c "./mvnw spring-boot:run; exec bash"
+./mvnw spring-boot:run > backend.log 2>&1 & echo $! > backend.pid
 
-# Start React frontend
+# Start React frontend in the background and log output to frontend.log
 if [[ ! -d "ui" ]]; then
     echo "Error: 'ui' directory not found!"
     exit 1
@@ -24,8 +24,10 @@ if [[ ! -f "package.json" ]]; then
 fi
 
 echo "Starting React frontend..."
-gnome-terminal -- bash -c "npm run start; exec bash"
+npm run start > ../frontend.log 2>&1 & echo $! > ../frontend.pid
 
 cd ..
 
-echo "Both applications are now running!"
+echo "Both applications are now running in the background!"
+echo "Check backend.log and frontend.log for output."
+echo "To stop them, run: ./stop_project.sh"
