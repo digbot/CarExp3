@@ -16,7 +16,7 @@ public class ProfileCalcImp implements ProfileCalc {
         ProfileResponseDTO responseDTO = new ProfileResponseDTO();
         DynamicPropertyCopier.copyIntProperties(profile, responseDTO);
         profile.setSum(IntPropertiesExtractor.sumIntProperties(profile));
-        ///responseDTO.setTotal(IntPropertiesExtractor.sumIntProperties(profile));
+        responseDTO.setTotal(IntPropertiesExtractor.sumIntProperties(profile));
 
         return responseDTO;
     }
