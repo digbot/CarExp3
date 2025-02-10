@@ -25,11 +25,24 @@ public class BasicController {
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "/profile", method = RequestMethod.POST)
     public ProfileResponseDTO getProfile(@RequestBody ProfileRequestDTO requestDTO) {
+
         String age = requestDTO.getAge().toUpperCase();
         String size = requestDTO.getSize().toUpperCase();
         String distance = requestDTO.getDistance().toUpperCase();
 
-        return this.profileCalc.createProfileResponse(age, size, distance);
+        Profile profile = new DistanceProfile(age, size, distance);
+
+        ProfileResponseDTO responseDTO = new ProfileResponseDTO();
+        DynamicPropertyCopier.copyIntProperties(profile, responseDTO);
+        responseDTO.setTotal(IntPropertiesExtractor.sumIntProperties(profile));
+        return responseDTO;
+
+        /*
+        String age = requestDTO.getAge().toUpperCase();
+        String size = requestDTO.getSize().toUpperCase();
+        String distance = requestDTO.getDistance().toUpperCase();
+
+        return this.profileCalc.createProfileResponse(age, size, distance);*/
     }
 
     @ResponseStatus(HttpStatus.OK)

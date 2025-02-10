@@ -16,6 +16,7 @@ public class IntPropertiesExtractor {
                     field.setAccessible(true); // Make private fields accessible
                     try {
                         int value = field.getInt(obj);
+                        System.out.println(value);
                         sum += value;
                     } catch (IllegalAccessException e) {
                         // Handle exception if we cannot access the field's value
