@@ -41,6 +41,7 @@ function App() {
       <h1 className="text-4xl font-bold text-blue-600 mb-6">{t('description')}</h1>
       <form className="bg-white p-6 rounded-lg shadow-md w-full max-w-md" onSubmit={handleSubmit}>
         <div className="mb-4">
+          <h3 className="text-1xl font-bold text-blue-600 mb-6">{t('h2_description')}</h3>
           <label className="block text-gray-700 font-bold mb-2" htmlFor="age">{t('Age')}:</label>
           <select
             id="age"
